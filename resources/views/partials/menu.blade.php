@@ -52,6 +52,16 @@
                     </ul>
                 </li>
             @endcan
+            @can('product_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-shopping-basket nav-icon">
+
+                        </i>
+                        {{ trans('cruds.product.title') }}
+                    </a>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
