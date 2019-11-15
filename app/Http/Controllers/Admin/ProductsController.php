@@ -51,6 +51,8 @@ class ProductsController extends Controller
     {
         abort_if(Gate::denies('product_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $product->load('created_by');
+
         return view('admin.products.edit', compact('product'));
     }
 
@@ -88,6 +90,8 @@ class ProductsController extends Controller
     public function show(Product $product)
     {
         abort_if(Gate::denies('product_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $product->load('created_by');
 
         return view('admin.products.show', compact('product'));
     }
