@@ -57,6 +57,8 @@ return [
             'roles_helper'             => '',
             'remember_token'           => 'Remember Token',
             'remember_token_helper'    => '',
+            'subdomain'                => 'Subdomain',
+            'subdomain_helper'         => '',
             'created_at'               => 'Created at',
             'created_at_helper'        => '',
             'updated_at'               => 'Updated at',

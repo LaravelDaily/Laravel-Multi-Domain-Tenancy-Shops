@@ -54,13 +54,27 @@
                         @endif
                     </div>
 
-                    <div class="input-group mb-4">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="fa fa-lock fa-fw"></i>
                             </span>
                         </div>
                         <input type="password" name="password_confirmation" class="form-control" required placeholder="{{ trans('global.login_password_confirmation') }}">
+                    </div>
+
+                    <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-globe fa-fw"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="subdomain" class="form-control{{ $errors->has('subdomain') ? ' is-invalid' : '' }}" required placeholder="{{ trans('cruds.user.fields.subdomain') }}" value="{{ old('subdomain', null) }}">
+                        @if($errors->has('subdomain'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('subdomain') }}
+                            </div>
+                        @endif
                     </div>
 
                     <button class="btn btn-block btn-primary">

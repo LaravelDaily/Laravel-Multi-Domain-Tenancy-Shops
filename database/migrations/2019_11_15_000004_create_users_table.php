@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
 
             $table->string('remember_token')->nullable();
 
+            $table->string('subdomain')->nullable();
+
             $table->timestamps();
 
             $table->softDeletes();
