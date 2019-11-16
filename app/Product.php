@@ -38,7 +38,7 @@ class Product extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('thumb')->width(50)->height(50);
+        $this->addMediaConversion('thumb')->width(400)->height(291);
     }
 
     public function getMainPhotoAttribute()
@@ -67,5 +67,10 @@ class Product extends Model implements HasMedia
     public function created_by()
     {
         return $this->belongsTo(User::class, 'created_by_id');
+    }
+
+    public function getPrice()
+    {
+        return $this->price ? '$'.number_format($this->price, 2) : 'FREE';
     }
 }

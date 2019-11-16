@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
+use Spatie\MediaLibrary\Models\Media;
 
 class User extends Authenticatable
 {
@@ -85,5 +86,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function randomProductImage()
+    {
+        $media = Media::whereCollectionName('main_photo')->inRandomOrder()->first();
+        return $media ? $media->getUrl() : url('images/no-image.jpg');
     }
 }
