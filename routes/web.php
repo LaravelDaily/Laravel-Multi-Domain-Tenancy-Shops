@@ -13,6 +13,7 @@ Auth::routes();
 
 Route::domain('{subdomain}.'.config('app.short_url'))->group(function () {
     Route::get('/', 'ProductsController@index')->name('products.index');
+    Route::resource('products', 'ProductsController')->only(['index', 'show']);
 });
 
 Route::get('/', 'HomeController@index')->name('home');

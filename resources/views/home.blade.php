@@ -1,9 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<!-- SLIDER -->
 <section class="slider d-flex align-items-center">
-    <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12">
@@ -45,7 +43,7 @@
             @foreach($products as $product)
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <a href="{{ route('products.show', ['subdomain' => optional($product->created_by)->subdomain, 'product' => $product->id]) }}">
                             <img src="{{ $product->main_photo ? $product->main_photo->getUrl() : asset('images/no-image.jpg') }}" class="img-fluid" alt="#">
                             <div class="featured-title-box">
                                 <h6>{{ $product->name }}</h6>
@@ -59,17 +57,9 @@
                 </div>
             @endforeach
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="featured-btn-wrap">
-                    <a href="#" class="btn btn-danger">VIEW ALL</a>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
-<!--//END FEATURED PLACES -->
-<!--============================= CATEGORIES =============================-->
+
 <section class="main-block">
     <div class="container">
         <div class="row justify-content-center">
@@ -82,7 +72,7 @@
         <div class="row">
             @foreach($companies as $company)
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
+                    <a href="{{ route('products.index', ['subdomain' => $company->subdomain]) }}" class="category-wrap">
                         <div class="category-block">
                             <img src="{{ $company->randomProductImage() }}" style="max-width: 190px">
                             <h6>{{ $company->name }}</h6>
@@ -93,5 +83,4 @@
         </div>
     </div>
 </section>
-<!--//END CATEGORIES -->
 @endsection

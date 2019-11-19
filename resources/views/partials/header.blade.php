@@ -1,12 +1,10 @@
-<div class="nav-menu">
-    <div class="bg transition">
-        <div class="container-fluid fixed">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html">Listing</a>
-                    </nav>
-                </div>
+<div class="{{ request()->is('/', 'products') ? 'nav-menu bg transition' : 'dark-bg sticky-top'}}">
+    <div class="container-fluid @if(request()->is('/', 'products')) fixed @endif">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="{{ url('/') }}">Listing</a>
+                </nav>
             </div>
         </div>
     </div>
