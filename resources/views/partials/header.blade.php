@@ -1,5 +1,5 @@
-<div class="{{ request()->is('/', 'products') ? 'nav-menu bg transition' : 'dark-bg sticky-top'}}">
-    <div class="container-fluid @if(request()->is('/', 'products')) fixed @endif">
+<div class="{{ request()->is('/', 'products', 'search') ? 'nav-menu bg transition' : 'dark-bg sticky-top'}}">
+    <div class="container-fluid @if(request()->is('/', 'products', 'search')) fixed @endif">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light">

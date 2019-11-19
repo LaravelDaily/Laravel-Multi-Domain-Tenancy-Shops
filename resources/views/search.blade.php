@@ -18,7 +18,7 @@
                         <div class="col-md-10">
                             <form class="form-wrap mt-4" action="{{ route('search') }}">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <input type="text" name="search" class="btn-group1" placeholder="What are your looking for?">
+                                    <input type="text" name="search" class="btn-group1" placeholder="What are your looking for?" value="{{ request('search') }}">
                                     <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                 </div>
                             </form>
@@ -35,7 +35,7 @@
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="styled-heading">
-                    <h3>Random Products</h3>
+                    <h3>Products</h3>
                 </div>
             </div>
         </div>
@@ -54,30 +54,6 @@
                             </div>
                         </a>
                     </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<section class="main-block">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="styled-heading">
-                    <h3>Browse Companies</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            @foreach($companies as $company)
-                <div class="col-md-3 category-responsive">
-                    <a href="{{ route('products.index', ['subdomain' => $company->subdomain]) }}" class="category-wrap">
-                        <div class="category-block">
-                            <img src="{{ $company->randomProductImage() }}" style="max-width: 190px">
-                            <h6>{{ $company->name }}</h6>
-                        </div>
-                    </a>
                 </div>
             @endforeach
         </div>

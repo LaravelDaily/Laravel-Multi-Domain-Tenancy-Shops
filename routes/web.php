@@ -17,6 +17,7 @@ Route::domain('{subdomain}.'.config('app.short_url'))->group(function () {
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('search', 'HomeController@search')->name('search');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
