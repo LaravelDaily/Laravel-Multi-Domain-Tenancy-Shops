@@ -11,6 +11,10 @@ Route::get('/home', function () {
 
 Auth::routes();
 
+Route::domain('{subdomain}.'.config('app.short_url'))->group(function () {
+    Route::get('/', 'ProductsController@index')->name('products.index');
+});
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
