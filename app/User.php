@@ -90,7 +90,13 @@ class User extends Authenticatable
 
     public function randomProductImage()
     {
-        $media = Media::whereCollectionName('main_photo')->inRandomOrder()->first();
+        $products = $this->products->pluck('id');
+        //logger($this->products);
+        $media = Media::whereCollectionName('main_photo')
+            ->whereIn('model_id', $products)        
+            ->inRandomOrder()
+            ->first();
+
         return $media ? $media->getUrl() : url('images/no-image.jpg');
     }
 }
