@@ -2,6 +2,8 @@ Demo Laravel 6 to show subdomains for every user, so user can register with subd
 
 Project is partly generated with [QuickAdminPanel](https://2019.quickadminpanel.com)
 
+Front-end theme is [Listing](https://colorlib.com/wp/template/listing/) by [Colorlib](https://colorlib.com/wp/)
+
 ---
 
 ## How to use
